@@ -45,6 +45,10 @@ def stats(lst):
         if count == mode_times:
             mode.append(num)
 
+     # ERROR INTRODUCIDO: No mostrar el máximo cuando todos los valores son negativos
+    if all(x < 0 for x in lst):
+        max = "N/A"  # Esto es el error intencional
+
     print("list = " + str(lst))
     print("min = " + str(min))
     print("max = " + str(max))
