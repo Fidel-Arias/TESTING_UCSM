@@ -9,52 +9,44 @@
 # Write test() such that it achieves 100%
 # statement coverage of the add8 function.
 def add8(a0,a1,a2,a3,a4,a5,a6,a7,b0,b1,b2,b3,b4,b5,b6,b7,c0):
-    s1 = False
-    if (a0 != b0) != c0:
-        s1 = True
-    c1 = False
-    if (a0 and b0) != (c0 and (a0 != b0)):
-        c1 = True
-    s2 = False
-    if (a1 != b1) != c1:
-        s2 = True
-    c2 = False
-    if (a1 and b1) != (c1 and (a1 != b1)):
-        c2 = True
-    s3 = False
-    if (a2 != b2) != c2:
-        s3 = True
-    c3 = False
-    if (a2 and b2) != (c2 and (a2 != b2)):
-        c3 = True
-    s4 = False
-    if (a3 != b3) != c3:
-        s4 = True
-    c4 = False
-    if (a3 and b3) != (c3 and (a3 != b3)):
-        c4 = True
-    s5 = False
-    if (a4 != b4) != c4:
-        s5 = True
-    c5 = False
-    if (a4 and b4) != (c4 and (a4 != b4)):
-        c5 = True
-    s6 = False
-    if (a5 != b5) != c5:
-        s6 = True
-    c6 = False
-    if (a5 and b5) != (c5 and (a5 != b5)):
-        c6 = True
-    s7 = False
-    if (a6 != b6) != c6:
-        s7 = True
-    c7 = False
-    if (a6 and b6) != (c6 and (a6 != b6)):
-        c7 = True
-    s8 = False
-    if (a7 != b7) != c7:
-        s8 = True
-    c8 = False
-    if (a7 and b7) != (c7 and (a7 != b7)):
-        c8 = True
-    return (s1,s2,s3,s4,s5,s6,s7,s8,c8)
+    # Bit 0
+    xor0 = a0 != b0
+    s1 = xor0 != c0
+    c1 = (a0 and b0) or (c0 and xor0)
+    
+    # Bit 1
+    xor1 = a1 != b1
+    s2 = xor1 != c1
+    c2 = (a1 and b1) or (c1 and xor1)
+    
+    # Bit 2
+    xor2 = a2 != b2
+    s3 = xor2 != c2
+    c3 = (a2 and b2) or (c2 and xor2)
+    
+    # Bit 3
+    xor3 = a3 != b3
+    s4 = xor3 != c3
+    c4 = (a3 and b3) or (c3 and xor3)
+    
+    # Bit 4
+    xor4 = a4 != b4
+    s5 = xor4 != c4
+    c5 = (a4 and b4) or (c4 and xor4)
+    
+    # Bit 5
+    xor5 = a5 != b5
+    s6 = xor5 != c5
+    c6 = (a5 and b5) or (c5 and xor5)
+    
+    # Bit 6
+    xor6 = a6 != b6
+    s7 = xor6 != c6
+    c7 = (a6 and b6) or (c6 and xor6)
+    
+    # Bit 7 (MSB)
+    xor7 = a7 != b7
+    s8 = xor7 != c7
+    c8 = (a7 and b7) or (c7 and xor7)
+    
+    return (s1, s2, s3, s4, s5, s6, s7, s8, c8)
