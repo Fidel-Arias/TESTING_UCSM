@@ -10,6 +10,17 @@ def isPrime(number):
             return False
     return True
 
+def isPrime2(number):
+    if number == 2:
+        return True
+    if number <= 1 or (number % 2) == 0:
+        return False
+    # Corregiir añadiendo +1 para incluir la raíz cuadrada en el rango
+    for check in range(3, int(math.sqrt(number)) + 1, 2): 
+        if number % check == 0:
+            return False
+    return True
+
 def check(n):
     print("isPrime(" + str(n) + ") = {}".format(isPrime(n)))
 
